@@ -1,7 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 
 const Login = () => {
+
+   const [inputs, setInputs] = useState({
+     email:'',
+     password:''
+   });
+       
+  const [submitted, setSubmitted] = useState(false);
+  const { email, password } = inputs;
+
+
     return (
       <div className='col-lg-8 offset-lg-2'>
         <h2>Login</h2>

@@ -51,7 +51,7 @@ function handleResponse(response) {
   });
 }
 
-export const userServices ={
+export const userService ={
     login,
     register,
     logout
