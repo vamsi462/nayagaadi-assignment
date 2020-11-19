@@ -15,9 +15,12 @@ const Register = () => {
   const registering = useSelector(state => state.registration.registering);
   const dispatch = useDispatch();
 
+
    useEffect(() => {
     dispatch(userActions.logout());
     },[]);
+
+
   function handleChange(e) {
     const { name, value } = e.target;
     setUser(user => ({ ...user, [name]: value }));
@@ -46,6 +49,9 @@ const Register = () => {
               (submitted && !user.firstName ? " is-invalid" : "")
             }
           />
+            {submitted && !user.firstName &&
+                        <div className="invalid-feedback">First Name is required</div>
+                    }
         </div>
         <div className='form-group'>
           <label>Last Name</label>
@@ -105,6 +111,7 @@ const Register = () => {
             Cancel
           </Link>
         </div>
+
          {submitted && !user.firstName && (
             <div className='invalid-feedback'>First Name is required</div>
           )}
