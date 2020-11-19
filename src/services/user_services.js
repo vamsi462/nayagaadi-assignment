@@ -5,7 +5,7 @@ function login(email, password) {
     body: JSON.stringify({ email, password }),
   };
 
-  return fetch('http://localhost:3000/user/authenticate', requestOptions)
+  return fetch('http://localhost:4000/user/authenticate', requestOptions)
     .then(handleResponse)
     .then(user => {
       // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -27,7 +27,7 @@ function register(user) {
     body: JSON.stringify(user),
   };
 
-  return fetch('http://localhost:3000/user/register', requestOptions).then(handleResponse);
+  return fetch('http://localhost:4000/user/register', requestOptions).then(handleResponse);
 }
 
 
@@ -38,7 +38,7 @@ function handleResponse(response) {
       if (response.status === 401) {
         // auto logout if 401 response returned from api
         logout()
-       
+        window.location(true)
       }
 
       const error = (data && data.message) || response.statusText;

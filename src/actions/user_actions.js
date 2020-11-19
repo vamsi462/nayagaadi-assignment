@@ -9,6 +9,7 @@ function login(email, password,from){
         userService.login(email, password)
             .then(user =>{
                 dispatch(success(user))
+                 history.push(from);
             },
             error => {
                 dispatch(failure(error.toString()));
