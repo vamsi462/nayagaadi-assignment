@@ -13,9 +13,9 @@ export function configureMockBackend() {
       setTimeout(handleRoute, 500);
       function handleRoute() {
         switch (true) {
-          case url.endsWith("/user/authentication") && method === "POST":
+          case url.endsWith("/user/authenticate") && method === "POST":
             return authenticate();
-          case url.endsWith("/users/register") && method === "POST":
+          case url.endsWith("/user/register") && method === "POST":
             return register();
           case url.endsWith("/users") && method === "GET":
             return getUsers();
